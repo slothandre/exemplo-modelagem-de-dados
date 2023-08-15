@@ -57,12 +57,19 @@ ALTER TABLE fabricantes RENAME TO fornecedores;
 
 ```sql
 ALTER TABLE produtos
-    MODIFY COLUMN preco INT
+    MODIFY COLUMN preco INT;
 ```
 
 #### Renomear colunas
 
 ```sql
 ALTER TABLE fabricantes
-    CHANGE nome_antigo nome_novo
+    CHANGE nome_antigo nome_novo;
+```
+
+#### Adicionar coluna
+
+```sql
+ALTER TABLE produtos
+    ADD quantidade INT NULL AFTER preco;
 ```
