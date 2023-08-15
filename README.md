@@ -19,3 +19,7 @@
  ### n:m
 
  Relacionamento do tipo **n para m**, ou seja **vários para vários**.
+
+ ## Exercício de Modelagem Lógica
+
+ ![Modelo lógico do sistema](exercicio-01-modelo-logico.png)
