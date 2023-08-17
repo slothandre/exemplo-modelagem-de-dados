@@ -188,3 +188,25 @@ WHERE descricao LIKE "%tela%" OR nome LIKE "%tela%";
 -- o % significa "qualquer texto" antes da palavra ou
 -- depois da palavra
 ```
+
+### Operações e funções de agregação
+
+```sql
+SELECT SUM(preco) FROM produtos; -- SOMA
+SELECT SUM(preco) as Total FROM produtos; -- alias/apelido
+
+-- Exemplo de alias/apelido para outras colunas
+SELECT nome as Produto, preco as "Preço" FROM produtos;
+SELECT nome Produto, preco "Preço" FROM produtos;
+
+-- MÉDIA E ARREDONDAMENTO
+SELECT AVG(preco) as "Média dos Preços" FROM produtos;
+SELECT ROUND(AVG(preco), 2) as "Média dos Preços" FROM produtos;
+
+-- CONTAGEM
+SELECT COUNT(id) as "Qtd de Produtos" FROM produtos;
+
+SELECT COUNT(DISTINCT fabricante_id) as "Qtd de Fabricantes com Produtos" FROM produtos;
+
+-- DISTINCT é uma cláusula/flag
+```
