@@ -159,3 +159,32 @@ DELETE FROM fabricantes WHERE id = 4;
 -- de chave estrangeira/relacionamento, ou seja,
 -- existem produtos associados ao fabricante 3 (apple)
 ```
+
+---
+
+## SELECT: outras formas de uso
+
+```sql
+SELECT nome, preco FROM produtos ORDER BY nome;
+SELECT nome, preco FROM produtos ORDER BY preco;
+SELECT nome, preco FROM produtos ORDER BY preco DESC;
+
+-- DESC: classificação em ordem decrescente
+-- ASC (padrão): classificação em ordem crescente
+
+SELECT nome, preco FROM produtos
+WHERE quantidade = 20 ORDER BY nome;
+```
+
+### Busca de dados
+
+```sql
+SELECT nome, descricao FROM produtos
+WHERE descricao LIKE "%tela%" OR nome LIKE "%tela%";
+
+-- usamos o operador LIKE e o caractere coringa %
+-- para permitir uma busca da palavra indicada em
+-- qualquer posição dentro do texto. Neste contexto,
+-- o % significa "qualquer texto" antes da palavra ou
+-- depois da palavra
+```
