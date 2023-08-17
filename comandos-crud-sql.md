@@ -138,4 +138,24 @@ WHERE fabricante_id != 8;
 ```sql
 UPDATE fabricantes SET nome = "Asus do Brasil"
 WHERE id = 1; -- NÃO SE ESQUEÇA DO WHERE!! PERIGO!
+
+UPDATE produtos SET preco = 6549.74
+WHERE id = 4;
+
+-- Altere a quantidade dos produtos da Apple e da Samsung
+-- para 20
+UPDATE produtos SET quantidade = 20
+WHERE fabricante_id IN(3, 5);
+```
+
+## DELETE
+
+```sql
+-- NÃO SE ESQUEÇA DO WHERE!! PERIGO!
+DELETE FROM fabricantes WHERE id = 1;
+DELETE FROM fabricantes WHERE id = 4;
+
+-- A query abaixo NÃO FUNCIONA devido à restrição
+-- de chave estrangeira/relacionamento, ou seja,
+-- existem produtos associados ao fabricante 3 (apple)
 ```
