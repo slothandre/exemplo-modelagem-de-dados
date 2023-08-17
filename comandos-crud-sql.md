@@ -92,6 +92,8 @@ SELECT nome, descricao FROM produtos WHERE fabricante_id = 3;
 
 ### Operadores Lógicos: E, OU, NÃO
 
+#### E
+
 ```sql
 SELECT nome, preco FROM produtos
 WHERE preco >= 2000 AND preco <= 6000;
@@ -102,7 +104,7 @@ SELECT nome, preco FROM produtos
 WHERE preco > 5000 AND preco <= 6000;
 ```
 
-### OU
+#### OU
 
 ```sql
 SELECT nome, preco FROM produtos
@@ -119,7 +121,7 @@ SELECT nome, preco FROM produtos
 WHERE fabricante_id NOT IN(3, 5);
 ```
 
-### NÃO
+#### NÃO
 
 ```sql
 SELECT nome, descricao, preco FROM produtos
@@ -127,4 +129,13 @@ WHERE NOT fabricante_id = 8;
 
 SELECT nome, descricao, preco FROM produtos
 WHERE fabricante_id != 8;
+```
+
+---
+
+## UPDATE
+
+```sql
+UPDATE fabricantes SET nome = "Asus do Brasil"
+WHERE id = 1; -- NÃO SE ESQUEÇA DO WHERE!! PERIGO!
 ```
