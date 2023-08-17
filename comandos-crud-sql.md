@@ -210,3 +210,17 @@ SELECT COUNT(DISTINCT fabricante_id) as "Qtd de Fabricantes com Produtos" FROM p
 
 -- DISTINCT é uma cláusula/flag
 ```
+
+### Operações matemáticas
+
+```sql
+SELECT nome, preco, quantidade, (preco * quantidade) as Total
+FROM produtos;
+```
+
+### Segmentação/Agrupamento de resultados
+
+```sql
+SELECT fabricante_id, SUM(preco) FROM produtos
+GROUP BY fabricante_id;
+```
