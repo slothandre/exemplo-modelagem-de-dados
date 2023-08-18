@@ -272,7 +272,7 @@ GROUP BY Fabricante
 ORDER BY Total;
 ```
 
-### Trazer a quantidade de produtos de cada fabricante e a soma da quantidade/estoque destes produtos
+### Trazer a quantidade de produtos de cada fabricante e a soma da quantidade/estoque destes produtos, SOMENTE DOS FABRICANTES QUE POSSUEM PRODUTOS.
 
 ```sql
 SELECT
@@ -280,6 +280,18 @@ SELECT
     SUM(produtos.quantidade) as Estoque,
     COUNT(produtos.fabricante_id) as Produtos
 FROM produtos INNER JOIN fabricantes
+ON produtos.fabricante_id = fabricantes.id
+GROUP BY Fabricante;
+```
+
+### Trazer a quantidade de produtos de cada fabricante e a soma da quantidade/estoque destes produtos, MESMO DOS FABRICANTES QUE NÃO POSSUEM PRODUTOS.
+
+```sql
+SELECT
+    fabricantes.nome as Fabricante,
+    SUM(produtos.quantidade) as Estoque,
+    COUNT(produtos.fabricante_id) as Produtos
+FROM produtos RIGHT JOIN fabricantes
 ON produtos.fabricante_id = fabricantes.id
 GROUP BY Fabricante;
 ```
