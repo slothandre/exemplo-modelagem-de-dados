@@ -224,3 +224,62 @@ FROM produtos;
 SELECT fabricante_id, SUM(preco) FROM produtos
 GROUP BY fabricante_id;
 ```
+
+---
+
+## Consultas (Queries) em duas ou mais tabelas relacionadas (JUNÇÃO/JOIN)
+
+### Exibir nome do produto e nome do fabricante
+
+```sql
+-- SELECT tabela.coluna, tabela.coluna
+SELECT produtos.nome, fabricantes.nome
+
+-- INNER JOIN é o comando que permite JUNTAR as tabelas
+FROM produtos INNER JOIN fabricantes
+
+-- ON comando para indicar a forma/critério da junção
+ON produtos.fabricante_id = fabricantes.id;
+
+
+SELECT produtos.nome as Produto, fabricantes.nome as Fabricante
+FROM produtos INNER JOIN fabricantes
+ON produtos.fabricante_id = fabricantes.id;
+```
+
+### Nome do produto, preço do produto, nome do fabricante, ordenados pelo nome do produto
+
+```sql
+SELECT
+    produtos.nome as Produto,
+    produtos.preco as "Preço",
+    fabricantes.nome as Fabricante
+FROM produtos INNER JOIN fabricantes
+ON produtos.fabricante_id = fabricantes.id
+ORDER BY Produto; -- ou produtos.nome
+```
+
+### Fabricante, soma dos preços e a quantidade de produtos
+
+```sql
+SELECT
+    fabricantes.nome as Fabricante,
+    SUM(produtos.preco) as Total,
+    COUNT(produtos.fabricante_id) as "Qtd de Produtos"
+FROM produtos INNER JOIN fabricantes
+ON produtos.fabricante_id = fabricantes.id
+GROUP BY Fabricante
+ORDER BY Total;
+```
+
+### Trazer a quantidade de produtos de cada fabricante e a soma da quantidade/estoque destes produtos
+
+```sql
+SELECT
+    fabricantes.nome as Fabricante,
+    SUM(produtos.quantidade) as Estoque,
+    COUNT(produtos.fabricante_id) as Produtos
+FROM produtos INNER JOIN fabricantes
+ON produtos.fabricante_id = fabricantes.id
+GROUP BY Fabricante;
+```
